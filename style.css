@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Tektur:wght@500&display=swap');
+
+/*generales*/
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none !important;
+    list-style: none !important;
+    box-sizing: border-box;
+    font-family: 'Tektur', cursive;
+}
+
+/*vars*/
+
+:root {
+    --sombra: 1px 1px 5px black;
+    --Gradient: linear-gradient(rgb(19, 18, 18), black);
+    --LetterShadow: 1px 1px 10px #ccc;
+    --BordeGral: 1px solid darkgray !important;
+    --ColorLetra: #eee;
+
+}
+
+body {
+    background-color: black !important;
+}
+
+/*todo el heigth*/
+html,
+body {
+    max-height: 600px;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.container-fluid,
+.contenido-principal,
+.panels {
+    max-height: 600px;
+}
+
+.fa-android,
+.fa,
+.fab,
+.fas,
+i,
+span,
+h6,
+label {
+    color: var(--ColorLetra) !important;
+    text-shadow: var(--LetterShadow);
+}
+
+button {
+    background-color: #171717 !important;
+    border: none !important;
+    text-shadow: var(--ColorLetra);
+}
+
+h6 {
+    margin-bottom: 0;
+}
+
+/****************************/
+
+/*text-shadow gral*/
+
+.titulo {
+    text-shadow: var(--LetterShadow);
+    font-size: 44px;
+    color: var(--ColorLetra);
+}
+
+#voltsPercentage {
+    text-shadow: 0 0 5px #ffffff80;
+    transition: text-shadow 0.3s ease-in-out;
+}
+
+.fa-lightbulb {
+    text-shadow: none;
+    color: #ccc !important;
+}
+
+
+@media (min-width:320px) and (max-width:576px) {
+
+    html,
+    body,
+    .container-fluid,
+    .contenido-principal,
+    .panels {
+        height: 100vh !important;
+        overflow: scroll !important;
+    }
+
+    .panel-izq {
+        margin-top: 10px !important;
+    }
+
+    i {
+        margin-left: 0px !important;
+        margin-right: 0px !important;
+    }
+}
+
+/* @media (min-width:580px) and (max-width:780px) {
+    .panels {
+        height: 100vh !important;
+    }
+} */
+
+/*ESTILOS PANEL PRINCIAL (CENTRAL)*/
+
+.display-row {
+    width: 95%;
+    border: none !important;
+}
+
+.form-control {
+    height: 170px !important;
+    background-color: white !important;
+}
+
+.display-controller {
+    height: 220px !important;
+    border-bottom: 2px solid white;
+    border-radius: 0px !important;
+    background-color: black !important;
+}
+
+.col-2 {
+    line-height: 60px !important;
+    text-align: center;
+    height: auto !important;
+    padding: 0 !important;
+    border: none !important;
+
+}
+
+#input-data {
+    font-weight: bolder !important;
+    font-style: italic;
+}

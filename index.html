@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Title>IoT</Title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shuffle-letters/dist/shuffle-letters.min.css">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container-fluid ">
+        <!-- TITULO DEL PROYECTO -->
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center align-items-center ">
+                <h1 class="text-center titulo animate__animated animate__rollIn mt-3">Control IoT <i
+                        class="fab fa-android "></i></h1>
+            </div>
+        </div>
+        <!-- Fin de titulo de proyecto -->
+        <div class="row  contenido-principal">
+            <!-- panel izquierdo -->
+            <div class="col-12  col-sm-3 panels">
+                <div class="row panel-izq  ">
+                    <div class="col-12 icono-luz d-flex justify-content-center mt-5">
+                        <button class="btn btn-dark"><i class="fas fa-lightbulb fa-3x" id="icono-luz"></i></button>
+                    </div>
+                    <div class="col-12 icono-luz d-flex flex-column align-items-center ">
+                        <label for="customRange2" class="form-label mt-3">Intensidad <span
+                                id="voltsPercentage">0%</span></label>
+                        <input type="range" class="form-range " min="0" max="100" id="customRange2" value="0">
+                    </div>
+                </div>
+                <div class="row panel-izq mt-5 text-center  ">
+                    <!--COMANDO DE FOCO   -->
+                    <div class="col-12 icono-luz d-flex justify-content-center mt-2">
+                        <button class="btn"><i class="fa fa-fan fa-3x" id="icono-luz"></i></button>
+                    </div>
+                    <!--COMANDO DE VENTILADOR   -->
+                    <div class="col-12 icono-fan d-flex flex-column align-items-center">
+                        <button id="toggleFan" class="btn btn-command-fan text-light mt-3">
+                            <i class="fa-regular fa-circle-stop "></i>
+                            <h6 class="text-center" id="fanStatus">On</h6>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- panel central -->
+            <div class="col-12 col-sm-6 panels">
+                <!-- Display -->
+                <div class="row">
+                    <div class="col p-0 display-controller d-flex flex-column align-items-center">
+                        <div class="row display-row">
+                            <div class="col display-box-input">
+                                <input id="input-data" class="form-control mt-4 mb-3 text-start" type="text" disabled>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fin display -->
+                <div class="row mt-3">
+                    <div class="col-4 col-sm-2 btn btn-outline-dark justify-content-center text-center"
+                        style="height: 60px;">
+                        <i class="fa fa-video-camera fa-2x"></i>
+                    </div>
+                    <div class="col-4 col-sm-2 btn btn-outline-dark" style="height: 60px;">
+                        <i class="fa fa-tv-alt fa-2x"></i>
+                    </div>
+                    <div class="col-4 col-sm-2 btn btn-outline-dark" style="height: 60px;">
+                        <i class="fa fa-camera-retro fa-2x"></i>
+                    </div>
+                    <div class="col-4 col-sm-2 btn btn-outline-dark" style="height: 60px;">
+                        <i class="fab fa-bluetooth fa-2x"></i>
+                    </div>
+                    <div class="col-4 col-sm-2 btn btn-outline-dark" style="height: 60px;">
+                        <i class="fas fa-battery-full fa-2x"></i>
+                    </div>
+                    <div class="col-4 col-sm-2 btn btn-outline-dark" style="height: 60px;">
+                        <i class="fas fa-wifi fa-2x"></i>
+                    </div>
+                    <div class="col-12 col-sm-5 ms-2 me-2 mt-3 mb-3 justify-content-center align-content-center mx-auto video"
+                        style="max-height: 160px; background-color: whitesmoke;">
+                        <video id="videoElement" src="" width="640" height="380" autoplay></video>
+                    </div>
+                    <div class="col-4 col-sm-2 btn btn-outline-dark" style="height: 60px;">
+                        <i class="fas fa-thermometer-half fa-2x"></i>
+                    </div>
+                    <div class="col-4 col-sm-2 btn btn-outline-dark" style="height: 60px;">
+                        <i class="fas fa-cloud fa-2x"></i>
+                    </div>
+                    <div class="col-4 col-sm-2 btn btn-outline-dark justify-content-center text-center"
+                        style="height: 60px;">
+                        <i class="fas fa-home fa-2x"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- FIN panel central -->
+
+            <!-- Panel derecho -->
+            <div class="col-12  col-sm-3 panels ">
+                <div class="row  panel-der  ">
+                    <!--COMANDO DE HUMEDAD  AMBIENTAL -->
+                    <div class="col-12 icono-camera d-flex flex-column align-items-center mt-5 ">
+                        <button id="toggleFan" class="btn btn-command-fan text-light b-0">
+                            <i class="fa-solid fa-droplet fa-2x"></i>
+                            <i class="fa-solid fa-cloud-moon-rain fa-2x"></i>
+                        </button>
+                        <h6 class="form-label mt-3 ">Clima <span id="temp">0</span> <i
+                                class="fa-solid fa-temperature-three-quarters text-light"></i></h6>
+                    </div>
+
+                    <!--COMANDO DE HUMEDAD DE TIERRA -->
+                    <div class="col-12 icono-camera d-flex flex-column align-items-center mt-5 ">
+                        <button id="toggleFan" class="btn btn-command-fan text-light b-0">
+                            <i class="fa-solid fa-seedling fa-2x "></i>
+                        </button>
+                        <h6 class="form-label mt-3">Humedad <span id="humid">0%</span> </h6>
+                    </div>
+                </div>
+                <!-- FIN Panel derecho -->
+            </div>
+        </div>
+    </div>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.shuffleLetters/2.1.0/jquery.shuffleLetters.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <script src="query.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
